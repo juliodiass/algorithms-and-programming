@@ -3,7 +3,7 @@
 > Repositório com exercícios e projetos desenvolvidos durante meus estudos de Algoritmos e Programação.
 
 ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=3776AB)
 
 ## Sobre
 
