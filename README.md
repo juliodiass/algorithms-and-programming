@@ -1,26 +1,26 @@
-# Algoritmos e Programação
+# Algorithms and Programming
 
-> Repositório com exercícios e projetos desenvolvidos durante meus estudos de Algoritmos e Programação.
+> A repository containing exercises and projects developed during my Algorithms and Programming studies.
 
 ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=3776AB)
 
-## Sobre
+## About
 
-Este repositório reúne meus estudos práticos de lógica de programação, estruturas de controle, funções, ponteiros e desenvolvimento de pequenos projetos utilizando **C** e **Python**.
+This repository contains practical studies in programming logic, control structures, functions, pointers, and small projects developed using **C** and **Python**.
 
-## Estrutura do repositório
+## Repository Structure
 
 ```text
-algoritmos-e-programacao/
+algorithms-and-programming/
 │
 ├── c/
 │   ├── exercises/
 │   │   └── pointers/
 │   │
 │   └── projects/
-│       ├── Jogo da Forca/
-│       ├── Jogo de Adivinhação/
+│       ├── Hangman Game/
+│       ├── Number Guessing Game/
 │       └── Pac Man/
 │
 ├── python/
@@ -32,50 +32,46 @@ algoritmos-e-programacao/
 └── README.md
 ```
 
-## Projetos
+## Projects
 
 ### C
 
-- **Jogo da Forca**
-- **Jogo de Adivinhação**
+- **Hangman Game**
+- **Number Guessing Game**
 - **Pac Man**
-- Exercícios de ponteiros e fundamentos da linguagem
+- Pointer exercises and language fundamentals
 
 ### Python
 
 #### Restaurant Management System
 
-Aplicação de terminal para gerenciamento de restaurantes.
+A terminal application for restaurant management.
 
-Funcionalidades desenvolvidas:
+Features:
 
-- Cadastro de restaurantes
-- Listagem de restaurantes
-- Ativação de restaurantes
-- Validação de opções do menu
-- Interface de terminal mais amigável
+- Restaurant registration
+- Restaurant listing
+- Restaurant activation
+- Menu option validation
+- Improved terminal user interface
 
-Para executar o projeto Python a partir da pasta principal do repositório:
+To run the Python project from the repository root:
 
 ```powershell
 python .\python\projects\restaurant-management-system\app.py
 ```
 
-## Conteúdos praticados
+## Topics Practiced
 
-- Variáveis e tipos de dados
-- Estruturas condicionais
-- Laços de repetição
-- Funções
-- Listas
-- Ponteiros
-- Organização de código
-- Git e GitHub
+- Variables and data types
+- Conditional statements
+- Loops
+- Functions
+- Lists
+- Pointers
+- Code organization
+- Git and GitHub
 
-## Autor
+## Author
 
-Desenvolvido por **Júlio Dias** durante os estudos de programação.
-
-## Purpose
-
-This repository contains exercises developed throughout my studies in Computer Science, with a focus on practicing programming fundamentals and problem-solving in C and Python.
+Developed by **Júlio Dias** during programming studies.
