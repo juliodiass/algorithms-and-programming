@@ -4,8 +4,13 @@ struct mapa{
     int colunas;
 };
 typedef struct mapa MAPA;
+struct posicao{
+    int x;
+    int y;
+};
+typedef struct posicao POSICAO;
 void lermapa(MAPA* m);
 void alocamapa(MAPA* m);
 void liberamapa(MAPA* m);
 void imprimemapa(MAPA* m);
-
+void encontramapa(MAPA *m, POSICAO *p, char c);

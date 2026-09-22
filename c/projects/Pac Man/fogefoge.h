@@ -1,6 +1,6 @@
-void lermapa();
-void alocamapa();
-void liberamapa();
-void imprimemapa();
-int acabou();
-void imprimemapa();
+#include <stdio.h>
+#include <stdlib.h>
+#include "fogefoge.h"
+#include "mapa.h"
+void move(char direcao);
+int acabou;
