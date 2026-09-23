@@ -1,19 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "mapa.h"
-#include "fogefoge.h"
-
-void encontramapa(MAPA *m, POSICAO *p, char c){
-    for(int i = 0; i < (*m).linhas; i++){
-        for(int j = 0; j < (*m).colunas; j++){
-            if((*m).matriz[i][j] == c){
-                (*p).x = i;
-                (*p).y = j;
-                break;
-            }
-        }
-    }
-}
 
 void lermapa(MAPA* m){
     FILE* f;
@@ -25,7 +12,7 @@ void lermapa(MAPA* m){
 
     fscanf(f, "%d %d", &((*m).linhas), &((*m).colunas));
 
-    alocamapa();
+    alocamapa(m);
 
     for(int i = 0; i < 5; i++){
         fscanf(f, "%s", (*m).matriz[i]);
@@ -47,5 +34,17 @@ void liberamapa(MAPA* m){
 void imprimemapa(MAPA* m){
     for(int i = 0; i < 5; i++){
         printf("%s\n", (*m).matriz[i]);
+    }
+}
+
+void encontramapa(MAPA *m, POSICAO *p, char c){
+    for(int i = 0; i < (*m).linhas; i++){
+        for(int j = 0; j < (*m).colunas; j++){
+            if((*m).matriz[i][j] == c){
+                (*p).x = i;
+                (*p).y = j;
+                break;
+            }
+        }
     }
 }
