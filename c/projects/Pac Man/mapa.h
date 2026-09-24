@@ -1,3 +1,12 @@
+#define HEROI '@'
+#define VAZIO '.'
+#define PAREDE_VERTICAL '|'
+#define PAREDE_HORIZONTAL '-'
+#define CIMA 'w'
+#define BAIXO 's'
+#define ESQUERDA 'a'
+#define DIREITA 'd'
+
 struct mapa{
     char** matriz;
     int linhas;
@@ -14,3 +23,6 @@ void alocamapa(MAPA* m);
 void liberamapa(MAPA* m);
 void imprimemapa(MAPA* m);
 void encontramapa(MAPA *m, POSICAO *p, char c);
+int ehvalida(MAPA *m, int x, int y);
+int ehvazia(MAPA *m, int x, int y);
+void andando(MAPA *m, int xorigem, int yorigem, int xdestino, int ydestino);
