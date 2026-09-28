@@ -1,6 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "mapa.h"
+
+void copiamapa(MAPA *destino, MAPA *origem){
+    destino->linhas = origem->linhas;
+    destino->colunas = origem->colunas;
+
+    alocamapa(destino);
+    for(int i = 0; i < origem->linhas; i++){
+        strcpy(destino->matriz[i], origem->matriz[i]);
+    }
+}
+
 
 int ehvalida(MAPA *m, int x, int y){
     if(x >= m->linhas)
