@@ -1,10 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "mapa.h"
 #include "fogefoge.h"
 
 MAPA m;
 POSICAO heroi;
+
+int movimentofantasma(int xatual, int yatual, int *xdestino, int *ydestino){
+    int opcoes[4][2] = {
+        {xatual, yatual +1},
+        {xatual +1, yatual},
+        {xatual, yatual -1},
+        {xatual -1, yatual}
+    };
+
+    srand(time(0));
+    for(int i = 0; i < 10; i++){
+        int posicao = rand() % 4;
+
+        if(podeandar(&m, opcoes[posicao][0], opcoes[posicao][1])){ 
+            *xdestino = opcoes[posicao][0];
+            *ydestino = opcoes[posicao][1];
+
+            return 1;
+        }
+    }
+    return 0;
+}
 
 void fantasmas(){
     MAPA copia;
@@ -13,8 +36,14 @@ void fantasmas(){
     for(int i = 0; i < m.linhas; i++){
         for(int j = 0; j < m.colunas; j++){
             if(copia.matriz[i][j] == FANTASMA){
-                if(ehvalida(&m, i, j+1) && ehvazia(&m, i, j+1)){
-                    andando(&m, i, j, i, j+1);
+
+                int xdestino;
+                int ydestino;
+
+                int encontrou = movimentofantasma(i, j, &xdestino, &ydestino);
+
+                if(encontrou){
+                    andando(&m, i, j, xdestino, ydestino);
                 }
             }
         }
@@ -23,7 +52,9 @@ void fantasmas(){
 }
 
 int acabou(){
-    return 0;
+    POSICAO pos;
+    int fogefogenomapa = encontramapa(&m, &pos, HEROI);
+    return !fogefogenomapa;
 }
 
 int ehdirecao(char direcao){
@@ -53,10 +84,7 @@ void move(char direcao){
             break;
     }
 
-    if(!ehvalida(&m, proximox, proximoy))
-        return;
-
-    if(!ehvazia(&m, proximox, proximoy))
+    if(!podeandar(&m, proximox, proximoy))
         return;
 
     andando(&m, heroi.x, heroi.y, proximox, proximoy);

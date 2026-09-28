@@ -27,6 +27,11 @@ int ehvazia(MAPA *m, int x, int y){
     return m->matriz[x][y] == VAZIO;
 }
 
+int podeandar(MAPA *m, int x, int y){
+    return
+        ehvalida(m, x, y) && ehvazia(m, x, y);
+}
+
 void andando(MAPA *m, int xorigem, int yorigem, int xdestino, int ydestino){
     char personagem = m->matriz[xorigem][yorigem];
     m->matriz[xdestino][ydestino] = personagem;
@@ -68,14 +73,15 @@ void imprimemapa(MAPA* m){
     }
 }
 
-void encontramapa(MAPA *m, POSICAO *p, char c){
+int encontramapa(MAPA *m, POSICAO *p, char c){
     for(int i = 0; i < m->linhas; i++){
         for(int j = 0; j < m->colunas; j++){
             if(m->matriz[i][j] == c){
                 p->x = i;
                 p->y = j;
-                break;
+                return 1;
             }
         }
     }
+    return 0;
 }

@@ -39,7 +39,7 @@ void liberamapa(MAPA* m);
 void imprimemapa(MAPA* m);
 
 // Encontra a posição de um determinado elemento no mapa
-void encontramapa(MAPA *m, POSICAO *p, char c);
+int encontramapa(MAPA *m, POSICAO *p, char c);
 
 // Verifica se uma posição está dentro dos limites do mapa
 int ehvalida(MAPA *m, int x, int y);
@@ -52,3 +52,6 @@ void andando(MAPA *m, int xorigem, int yorigem, int xdestino, int ydestino);
 
 // Copia um mapa para outro
 void copiamapa(MAPA *destino, MAPA *origem);
+
+// Agrupa a chamada das funções ehvalida && ehvazia
+int podeandar(MAPA *m, int x, int y);
