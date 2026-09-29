@@ -15,9 +15,9 @@ void copiamapa(MAPA *destino, MAPA *origem){
 
 
 int ehvalida(MAPA *m, int x, int y){
-    if(x >= m->linhas)
+    if(x < 0 || x >= m->linhas)
         return 0;
-    if(y >= m->colunas)
+    if(y < 0 || y >= m->colunas)
         return 0;
 
     return 1;
@@ -27,9 +27,17 @@ int ehvazia(MAPA *m, int x, int y){
     return m->matriz[x][y] == VAZIO;
 }
 
-int podeandar(MAPA *m, int x, int y){
+int ehparede(MAPA *m, int x, int y){
+    return m->matriz[x][y] == PAREDE_VERTICAL || m->matriz[x][y] == PAREDE_HORIZONTAL;
+}
+
+int ehpersonagem(MAPA *m, char personagem, int x, int y){
+    return m->matriz[x][y] == personagem;
+}
+
+int podeandar(MAPA *m, char personagem, int x, int y){
     return
-        ehvalida(m, x, y) && ehvazia(m, x, y);
+        ehvalida(m, x, y) && !ehparede(m, x, y) && !ehpersonagem(m, personagem, x, y);
 }
 
 void andando(MAPA *m, int xorigem, int yorigem, int xdestino, int ydestino){

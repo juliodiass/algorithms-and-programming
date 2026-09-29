@@ -53,5 +53,11 @@ void andando(MAPA *m, int xorigem, int yorigem, int xdestino, int ydestino);
 // Copia um mapa para outro
 void copiamapa(MAPA *destino, MAPA *origem);
 
-// Agrupa a chamada das funções ehvalida && ehvazia
-int podeandar(MAPA *m, int x, int y);
+// Verifica se um personagem pode andar para uma determinada posição
+int podeandar(MAPA *m, char personagem, int x, int y);
+
+// Verifica se uma posição contém uma parede
+int ehparede(MAPA *m, int x, int y);
+
+// Verifica se uma posição contém determinado personagem
+int ehpersonagem(MAPA *m, char personagem, int x, int y);
