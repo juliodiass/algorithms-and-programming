@@ -24,8 +24,10 @@ void lervetor(int *v1, int n1, int *v2, int n2){
 }
 int *intersecao (int *v1, int n1, int *v2, int n2, int *qtd){
     *qtd = 0;
-    int n3 = n1 + n2;
-    int *v3 = malloc(n3 * sizeof(int));
+    int tamanho = n1;
+    if(tamanho > n2)
+        tamanho = n2;
+    int *v3 = malloc(tamanho * sizeof(int));
         for(int i = 0; i < n1; i++){
             for(int j = 0; j < n2; j++){
                 if(v1[i] == v2[j]){
@@ -35,6 +37,7 @@ int *intersecao (int *v1, int n1, int *v2, int n2, int *qtd){
 
             }
         }
+    v3 = realloc(v3, *qtd * sizeof(int));
     return v3;
 }
 int main(){
