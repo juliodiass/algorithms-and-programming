@@ -29,22 +29,33 @@ int *intersecao (int *v1, int n1, int *v2, int n2, int *qtd){
         tamanho = n2;
     int *v3 = malloc(tamanho * sizeof(int));
         for(int i = 0; i < n1; i++){
+            int iguais = 0;
             for(int j = 0; j < n2; j++){
                 if(v1[i] == v2[j]){
+                    for(int k = 0; k < *qtd; k++){
+                        if(v3[k] == v1[i]){
+                            iguais = 1;
+                        }
+                }
+            if(iguais == 0){
                     v3[*qtd] = v1[i];
                     (*qtd)++;
-                }
-
+                    }
             }
         }
+    }
+    if(*qtd == 0){
+        free(v3);
+        printf("Nao ha interseccao!\n");
+        return NULL;
+    }
     v3 = realloc(v3, *qtd * sizeof(int));
     return v3;
 }
 int main(){
-    int n1, n2, n3, *v3, qtd;
+    int n1, n2, *v3, qtd;
     printf("Digite o tamanho dos vetores n1 e n2: ");
     scanf("%d %d", &n1, &n2);
-    n3 = n1 + n2;
     int v1[n1], v2[n2];
     lervetor(v1, n1, v2, n2);
 
