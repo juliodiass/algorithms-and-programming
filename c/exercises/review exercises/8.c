@@ -18,35 +18,25 @@ int *novovet(int *vet, int newqtd, int qtd);
 void exibirvetor(int *vet, int newqtd);
 int main(){
     int qtd;
+    do{
     printf("Digite quantos numeros deseja adicionar: ");
     scanf("%d", &qtd);
+    }while(qtd <= 0);
     int *vet = cadastrarnumeros(qtd);
     if(vet == NULL){
         printf("A alocacao falhou!\n");
         return 1;
     }
-    char sn;
     int newqtd;
     do{
-        printf("Deseja adicionar mais numeros (S/N): ");
-        scanf(" %c", &sn);
-    }while(sn != 'S' && sn != 'N');
-    if(sn == 'S'){
-        do{
-            printf("Quantos numeros serao adicionados? (Digite um numero > 0)");
-            scanf("%d", &newqtd);
-        }while(newqtd <= 0);
-        newqtd += qtd;
-        vet = novovet(vet, newqtd, qtd);
-        if(vet == NULL){
-            return 1;
-        }
-        exibirvetor(vet, newqtd);
+        printf("Para quantas posicoes deseja redimensionar: ");
+        scanf("%d", &newqtd);
+    }while(newqtd <= 0);
+    vet = novovet(vet, newqtd, qtd);
+    if(vet == NULL){
+      return 1;
     }
-    else{
-        free(vet);
-        return 0;
-    }
+    exibirvetor(vet, newqtd);
     free(vet);
     return 0;
 }
@@ -70,13 +60,17 @@ int *novovet(int *vet, int newqtd, int qtd){
         return NULL;
     }
     vet = temp;
-    printf("Digite os novos %d numeros: ", newqtd - qtd);
-    for(int i = 0; i < newqtd; i++){
-        scanf("%d", &vet[i]);
+    printf("---REDIMENSIONANDO O VETOR---\n");
+    if(newqtd > qtd){
+        printf("Digite os novos %d numeros: ", newqtd - qtd);
+        for(int i = qtd; i < newqtd; i++){
+            scanf("%d", &vet[i]);
+        }
     }
     return vet;
 }
 void exibirvetor(int *vet, int newqtd){
+    printf("---VALORES ARMAZENADOS---\n");
     for(int i = 0; i < newqtd; i++){
         printf("%d ", vet[i]);
     }
