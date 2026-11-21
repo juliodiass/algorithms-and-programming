@@ -27,9 +27,9 @@ void ordenarVet(int *vet, int inicio, int fim){
 }
 int verificarVet(int *vet, int inicio, int fim){
     if(inicio >= fim)
-        return 0;
+        return 1;
 
     if(vet[inicio] >= vet[inicio+1])
-        return 1;
+        return 0;
     return verificarVet(vet, inicio + 1, fim);
 }
