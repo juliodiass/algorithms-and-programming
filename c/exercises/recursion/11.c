@@ -11,7 +11,7 @@ int main(){
     scanf("%d", &N);
     int resultado = verificarPalindromo(N);
     if(resultado == 1)
-        printf("E palindromo!\n");
+        printf("Eh palindromo!\n");
     else
         printf("Nao e palindromo!\n");
     return 0;
